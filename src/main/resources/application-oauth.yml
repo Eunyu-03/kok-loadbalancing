@@ -4,17 +4,17 @@ spring:
       client:
         registration:
           kakao:
-            client-id: 6075ef7f69e9d88ca1ed07de8021de56
-            client-secret: FwFqgKtwh0126oDacEAIPBUdKQRc5nMT
-            redirect-uri: http://54.180.149.181/login/oauth2/code/kakao
+            client-id: ${KAKAO_CLIENT_ID}
+            client-secret: ${KAKAO_CLIENT_SECRET}
+            redirect-uri: http://${EC2_HOST}/login/oauth2/code/kakao
             client-authentication-method: client_secret_post
             authorization-grant-type: authorization_code
             scope: profile_nickname, profile_image, account_email
 
           naver:
-            client-id: MG98P9lLd7tCwGKAehml
-            client-secret: jyUjWe2Vyy
-            redirect-uri: http://54.180.149.181/login/oauth2/code/naver
+            client-id: ${NAVER_CLIENT_ID}
+            client-secret: ${NAVER_CLIENT_SECRET}
+            redirect-uri: http://${EC2_HOST}/login/oauth2/code/naver
             authorization-grant-type: authorization_code
             scope: name, email, profile_image
 

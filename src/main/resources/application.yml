@@ -12,16 +12,16 @@ server:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://15.164.96.234:5432/app?serverTimezone=Asia/Seoul
+    url: jdbc:postgresql://${EC2_HOST}:5432/app?serverTimezone=Asia/Seoul
     username: spring
-    password: 1234
+    password: ${DATABASE_PASSWORD}
   session:
     redis:
       repository-type: indexed
       flush-mode: immediate
   data:
     redis:
-      host: 15.164.96.234
+      host: ${EC2_HOST}
       port: 6379
   cache:
     type: redis
@@ -31,8 +31,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: kimdaae328
-    password: xoav buur wpyd cdym
+    username: wjddmsdb03@gmail.com
+    password: ${MAIL_PASSWORD}
     properties:
       mail:
         smtp:
@@ -42,18 +42,18 @@ spring:
 
 mybatis:
   mapper-locations: classpath*:mapper/**/*.xml
-  type-aliases-package: com.example.kok.domain;com.example.kok.dto
+  type-aliases-package: com.example.kok.domain;com.example.kok.dto;
   type-handlers-package: com.example.kok.mybatis.handler
   configuration:
     map-underscore-to-camel-case: true
 
 # openssl rand -base64 32
 jwt:
-  secret: X6boTs4ejNABCquznMAuLFUvu3yMvu7ICL/X+/tGzus=
+  secret: ${JWT_SECRET}
 
 aws:
-  access-key: AKIART3UT6J6LNJB7L72
-  secret-key: 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
+  access-key: ${AWS_ACCESS_KEY_ID}
+  secret-key: ${AWS_SECRET_ACCESS_KEY}
   s3:
-    bucket-name: kok-bucket
-  region: ap-northeast-2
+    bucket-name: ${AWS_S3_BUCKET}
+  region: ${AWS_REGION}
