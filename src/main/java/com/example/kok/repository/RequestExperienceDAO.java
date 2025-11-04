@@ -21,6 +21,12 @@ public class RequestExperienceDAO {
     public List<RequestExperienceDTO> selectAllRequestById(Long id){
         return requestExperienceMapper.selectRequestById(id);
     }
+
+//    멤버 아이디로 체험 개수 조회
+    public int  selectRequestCountById(Long id){
+        return requestExperienceMapper.selectRequestCountById(id);
+    }
+  
     //    지원 내역 목록 조회
     public List<RequestExperienceDTO> selectAllRequestByUserId(Long id,Long experienceId){
         return requestExperienceMapper.selectRequestByUserId(id,experienceId);

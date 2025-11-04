@@ -34,6 +34,6 @@ public interface CompanyService {
     public AdminCompanyCriteriaDTO findAllCompanies(int page, String keyword);
 
 //    아이디로 기업 조회
-    public Optional<AdminCompanyDTO> findCompany(Long userId);
+    public AdminCompanyDTO findCompany(Long userId);
 
 }

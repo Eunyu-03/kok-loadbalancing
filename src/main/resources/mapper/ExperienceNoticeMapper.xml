@@ -148,6 +148,13 @@
         order by created_datetime desc
         limit 3
     </select>
+
+    <!-- 기업별 체험 개수   -->
+    <select id="companyExperienceCount">
+        select count(*)
+        from tbl_experience_notice
+        where company_id = #{userId}
+    </select>
 <!--  체험 공고 리스트 조회 -->
     <select id="selectAllByKeyword">
         select e.experience_notice_title,e.id,c.company_name,e.company_id from tbl_experience_notice e join tbl_company c

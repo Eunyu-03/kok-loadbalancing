@@ -101,14 +101,11 @@ const layout = (() => {
         let experiencesText = ``;
         let internsText = ``;
         let postsText = ``;
-        let experiencesCount = 0;
-        let internsCount = 0;
         let text = ``;
 
         if (result.requestExperiences && result.requestExperiences.length > 0) {
             result.requestExperiences.forEach((experiences) => {
                 let status = ``;
-                experiencesCount++;
 
                 if (experiences.requestExperienceStatus === "await") {
                     status = "서류접수"
@@ -145,7 +142,6 @@ const layout = (() => {
         if (result.requestInterns && result.requestInterns.length > 0) {
             result.requestInterns.forEach((requestIntern) => {
                 let status = ``;
-                internsCount++;
 
                 if (requestIntern.requestInternStatus === "await") {
                     status = "서류접수"
@@ -256,7 +252,7 @@ const layout = (() => {
                                                                         </tr>
                                                                         <tr>
                                                                             <th>체험신청 횟수</th>
-                                                                            <td>${experiencesCount}</td>
+                                                                            <td>${result.requestExperienceCount}</td>
                                                                         </tr> 
                                                                     </tbody>
                                                                 </table>
@@ -279,7 +275,7 @@ const layout = (() => {
                                                                         </tr>
                                                                         <tr>
                                                                             <th>인턴신청 횟수</th>
-                                                                            <td>${internsCount}</td>
+                                                                            <td>${result.requestInternCount}</td>
                                                                         </tr>                                                                        
                                                                     </tbody>
                                                                 </table>

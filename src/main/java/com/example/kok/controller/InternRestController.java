@@ -139,16 +139,17 @@ public class InternRestController implements InternRestControllerDocs {
         return false;
     }
 
-//    간편지원 완료
+    //    간편지원 완료
     @PostMapping("/request")
     public void requestIntern(@RequestBody RequestInternDTO requestInternDTO,
-                                  @AuthenticationPrincipal CustomUserDetails customUserDetails) {
+                              @AuthenticationPrincipal CustomUserDetails customUserDetails) {
 //        System.out.println(requestInternDTO);
 //        System.out.println(customUserDetails.getId());
         RequestInternDTO request=new RequestInternDTO();
         request.setRequestInternMemberName(requestInternDTO.getRequestInternMemberName());
         request.setRequestInternMemberEmail(requestInternDTO.getRequestInternMemberEmail());
         request.setRequestInternMemberPhone(requestInternDTO.getRequestInternMemberPhone());
+        request.setEvaluationId(requestInternDTO.getEvaluationId());
         if(requestInternDTO.getRequestInternMemberUrl()!=null){
             request.setRequestInternMemberUrl(requestInternDTO.getRequestInternMemberUrl());
         }

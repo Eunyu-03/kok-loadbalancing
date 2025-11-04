@@ -27,7 +27,12 @@ public interface InternNoticeMapper {
 //    단일 조회
     public InternNoticeDTO selectById(Long id);
 
+//    기업별 인턴 공고 목록
     public List<InternNoticeDTO> selectListById(Long userId);
+
+//    기업별 인턴 공고 개수
+    public int selectListCountById(Long userId);
+
 //    직군 조회
     public String selectJobNameByIntId(Long id);
 

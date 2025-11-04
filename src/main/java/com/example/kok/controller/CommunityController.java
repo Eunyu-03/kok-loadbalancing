@@ -5,6 +5,7 @@ import com.example.kok.auth.CustomUserDetails;
 import com.example.kok.dto.AdvertisementDTO;
 import com.example.kok.dto.CompanyDTO;
 import com.example.kok.dto.ExperienceNoticeDTO;
+import com.example.kok.dto.UserMemberDTO;
 import com.example.kok.enumeration.UserRole;
 import com.example.kok.service.*;
 import lombok.RequiredArgsConstructor;
@@ -50,8 +51,10 @@ public class CommunityController {
                 model.addAttribute("companyDTO", companyDTO);
             }
 
-            memberService.findMembersByMemberId(memberId)
-                    .ifPresent(userMemberDTO -> model.addAttribute("member", userMemberDTO));
+            UserMemberDTO userMemberDTO = memberService.findMembersByMemberId(memberId);
+            if (userMemberDTO != null) {
+                model.addAttribute("member", userMemberDTO);
+            }
         }
 
         model.addAttribute("posts", communityPostService.getList(1, memberId).getPosts());

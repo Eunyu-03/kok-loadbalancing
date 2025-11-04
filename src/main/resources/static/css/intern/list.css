@@ -10,10 +10,6 @@
     padding: 12px;
 }
 
-.int-wrapper{
-    overflow-y: auto;
-}
-
 .no-results {
     justify-content: center;
     display: flex;
@@ -853,12 +849,7 @@ button.list-item-header .list-item-title {
     gap: 12px;
     margin-top: 12px;
     padding: 0 8px;
-    height: calc(var(--mobile-window) * 100);
 }
-
-:root {
-  --mobile-window: 1vh;
-    }
 
 .detail-header {
     display: flex;

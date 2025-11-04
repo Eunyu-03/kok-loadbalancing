@@ -41,6 +41,11 @@ public class InternNoticeDAO {
         return internNoticeMapper.selectListById(userId);
     }
 
+// 기업별 인턴 개수
+    public int internNoticeCount(Long userId) {
+        return internNoticeMapper.selectListCountById(userId);
+    }
+
     //    단일 조회
     public InternNoticeDTO findById(Long id){
         return internNoticeMapper.selectById(id);

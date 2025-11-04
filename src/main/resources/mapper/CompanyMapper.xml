@@ -44,7 +44,7 @@
         and i.company_id=#{companyId}
     </select>
 <!--    회사 규모 조회-->
-    <select id="selectScaleById" resultType="string">
+    <select id="selectScaleById" resultType="String">
         select s.company_scale_name
         from tbl_company_scale_category s
         join tbl_company_scale_category_bridge sb

@@ -1,6 +1,5 @@
 package com.example.kok.repository;
 
-import com.example.kok.dto.ExperienceNoticeCriteriaDTO;
 import com.example.kok.dto.ExperienceNoticeDTO;
 import com.example.kok.mapper.ExperienceNoticeMapper;
 import com.example.kok.util.CompanyNoticeCriteria;
@@ -54,6 +53,12 @@ public class ExperienceNoticeDAO {
     public List<ExperienceNoticeDTO> selectListById(Long userId) {
         return experienceNoticeMapper.selectListById(userId);
     };
+
+//    기업별 체험 개수 전체
+    public int selectListCountById(Long userId) {
+        return experienceNoticeMapper.companyExperienceCount(userId);
+    }
+
 //    체험 공고 리스트 조회
     public List<ExperienceNoticeDTO> findAllByKeyword(String keyword) {
     return experienceNoticeMapper.selectAllByKeyword(keyword);
