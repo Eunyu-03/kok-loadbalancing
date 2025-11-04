@@ -44,7 +44,7 @@ const layout = (() => {
             companyListContainer.innerHTML = text;
 
         } else {
-        text = `<tr class="no-data">
+            text = `<tr class="no-data">
                     <td colspan="7">결과가 없습니다.</td>
                 </tr>`;
 

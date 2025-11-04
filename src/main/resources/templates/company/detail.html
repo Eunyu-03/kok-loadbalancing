@@ -182,7 +182,7 @@
                                 <li class="content-item" th:each="company : ${popularCompanies}">
                                     <a th:href="@{/company/{id}(id=${company.userId})}" class="content-link">
                                         <div class="content-img-thumb">
-                                            <img th:src="${company.companyProfileFile != null ? company.companyProfileFile : '/images/experience/img_default.png'}" alt="">
+                                            <img th:src="${company.companyProfileFile != null ? company.companyProfileFile : '/images/member/profile.png'}" alt="">
                                         </div>
                                         <div class="content-text">
                                             <p class="title" th:text="${company.companyName}"></p>

@@ -31,7 +31,7 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: wjddmsdb03@gmail.com
+    username: ${MAIL_USERNAME}
     password: ${MAIL_PASSWORD}
     properties:
       mail:
@@ -57,3 +57,6 @@ aws:
   s3:
     bucket-name: ${AWS_S3_BUCKET}
   region: ${AWS_REGION}
+
+
+
