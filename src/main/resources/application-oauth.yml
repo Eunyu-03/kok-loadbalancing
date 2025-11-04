@@ -9,7 +9,7 @@ spring:
             redirect-uri: http://${EC2_HOST}/login/oauth2/code/kakao
             client-authentication-method: client_secret_post
             authorization-grant-type: authorization_code
-            scope: profile_nickname, profile_image, account_email
+            scope: profile_image, account_email
 
           naver:
             client-id: ${NAVER_CLIENT_ID}
