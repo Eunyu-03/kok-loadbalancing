@@ -1,4 +1,4 @@
-# 1단계: 빌드용 이미지-
+# 1단계: 빌드용 이미지
 FROM eclipse-temurin:17-jdk AS build
 
 # 빌드 시 필요한 정보 받아오기
