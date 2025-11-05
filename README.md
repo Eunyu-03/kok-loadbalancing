@@ -4,7 +4,8 @@
 
 ## 🎯 1. 기획 의도
 
-<img width="1924" height="1080" alt="image" src="https://github.com/user-attachments/assets/62ebce51-8bd4-4968-93f0-9da6e2190da7" />
+<img width="1924" height="1080" alt="Image" src="https://github.com/user-attachments/assets/068f5614-a650-4d61-984b-18c06515af28" />
+
 
 점점 줄어드는 취업자와 더불어 늘어나는 '쉬었음' 청년의 구직 실패 사유를 기업의 **경력직 선호**로 예상하였다. 경력을 쉽게 쌓을 수 없는 구직자와 재직자의 휴가 기간 동안 공석을 감당해야 하는 기업의 입장을 모두 고려해, 재직자가 자리를 비우는 기간에 직무를 체험해 볼 수 있는 **체험** 서비스의 필요성을 느꼈다. 또한 체험에 합격하여 직업을 체험해 본 구직자만 인턴 공고에 지원할 수 있고, 구직자들끼리 취업 정보 등을 나눌 수 있는 커뮤니티를 기획하였다.
 
@@ -12,7 +13,7 @@
 
 ## 🌟 2. 기대 효과
 
-<img width="1919" height="1069" alt="image" src="https://github.com/user-attachments/assets/2ab083fe-12f9-4304-a216-a46c980efce1" />
+<img width="1919" height="1069" alt="Image" src="https://github.com/user-attachments/assets/78e2d05c-a1e4-47ea-82df-e53f1c699eab" />
 
 구직 희망자들은 체험을 통해 부담 없이 경험을 쌓을 수 있고, 기업은 재직자의 휴가 기간 동안의 손실을 보충할 수 있을 것으로 예상된다. 또한 체험에서 인턴 채용으로 이어지는 흐름을 만들어 구직에 대한 문턱을 한 단계 낮춰 줄 것으로 기대된다.
 
@@ -39,7 +40,7 @@
 - DML 문법으로 실제 데이터를 직접 `insert`, `update`, `delete`, `select` 하고 확인했다.
 - 테이블 간의 관계를 고려하여 ERD를 구성하였다.
 
-<img width="9038" height="6284" alt="image" src="https://github.com/user-attachments/assets/96b929b1-6316-4b98-800d-e9f344d79501" />
+<img width="9038" height="6284" alt="Image" src="https://github.com/user-attachments/assets/1cab5509-d7e0-489f-9924-cf9a5fa473a0" />
 
 ---
 
@@ -53,15 +54,15 @@
 #### 🖼️ 예시 이미지
 
 <p align="center">
-  <img width="1915" height="905" alt="Image" src="https://github.com/user-attachments/assets/688a1d3f-b641-42ec-bb95-a82bb123cfca" />
-<img width="1900" height="898" alt="Image" src="https://github.com/user-attachments/assets/da9ed8fa-99e5-4541-9249-f0b335337ee1" />
+  <img width="1915" height="905" alt="Image" src="https://github.com/user-attachments/assets/0142aac1-4e5a-4f0f-9803-e0066ea9b6f9" />
+<img width="1900" height="898" alt="Image" src="https://github.com/user-attachments/assets/b7f8ec7c-35e2-418b-8ce2-bddd8aa1f651" />
 </p>
 
 #### 🧪 클론 코딩
 
 <p align="center">
-  <img width="1917" height="902" alt="Image" src="https://github.com/user-attachments/assets/5efbeca6-e188-4088-a81a-d6448d006942" />
-<img width="1898" height="904" alt="Image" src="https://github.com/user-attachments/assets/8948f1d2-839e-46ee-ad19-fa1e510546f9" />
+  <img width="1917" height="902" alt="Image" src="https://github.com/user-attachments/assets/92247ea5-6216-411e-b4ef-6ff679f56f14" />
+<img width="1898" height="904" alt="Image" src="https://github.com/user-attachments/assets/d7ce4f09-e046-4188-8a54-66977131b71c" />
 </p>
 
 ---
@@ -70,7 +71,7 @@
 
 ### 🎯 프론트엔드
 
-<img width="1015" height="403" alt="Image" src="https://github.com/user-attachments/assets/6ff8c100-3670-43bf-a98c-5a7e47cbda75" />
+<img width="1015" height="403" alt="Image" src="https://github.com/user-attachments/assets/18a3ebc9-56a4-4a8f-8f0b-b03602cace3c" />
 
 기업 콘솔
 - 기업 홈(공고와 광고 관련 정보 표시)
@@ -87,7 +88,7 @@
 
 ### 🛠️ 백엔드
 
-<img width="1839" height="311" alt="Image" src="https://github.com/user-attachments/assets/c44a8236-96fe-40ac-9068-b29b9b57855f" />
+<img width="1839" height="311" alt="Image" src="https://github.com/user-attachments/assets/773fb8a9-f9c9-44db-9ece-a06b941e200a" />
 
 체험 공고
 - 체험 공고 목록 불러오기
@@ -131,15 +132,15 @@
 프로필 업데이트 시 프로필 변경을 선택하지 않고 완료를 누르면 profile에 아무 파일도 들어오지 않아 profile이 null이 되어 NullPointerException이 터졌다.
 
 #### <오류> - at com.example.kok.service.MemberServiceImpl.updateProfile(MemberServiceImpl.java:221)  
-<img width="2319" height="219" alt="image" src="https://github.com/user-attachments/assets/05a862fb-7cdb-47a9-ab70-cc075a8e222a" />
+<img width="2319" height="219" alt="Image" src="https://github.com/user-attachments/assets/17ebc0e4-b0b8-410c-a9ad-1c7b641d2e3c" />
 
 #### <이전 코드>  
-<img width="1142" height="1139" alt="image" src="https://github.com/user-attachments/assets/b1c29c39-c7df-4822-8f11-2b7ebb139e6b" />
+<img width="1142" height="1139" alt="Image" src="https://github.com/user-attachments/assets/6c83183b-ed60-469e-bfb9-c07bf5c44787" />
 
 ### ✅ 해결
 
 #### <수정된 코드>  
-<img width="1309" height="1252" alt="image" src="https://github.com/user-attachments/assets/1a142b88-636c-4670-b05d-d5dc4d3de55d" />
+<img width="1309" height="1252" alt="Image" src="https://github.com/user-attachments/assets/7a04de7e-962f-4ab2-84c1-c230abc69315" />
 
 profile이 null이 아닐 경우에만 업데이트하도록 조건문을 걸어 프로필 변경을 선택하지 않으면 원래 프로필이 유지가 되도록 했다.
 
@@ -150,18 +151,18 @@ profile이 null이 아닐 경우에만 업데이트하도록 조건문을 걸어
 공고 상세 조회를 할 때 Redis에 chaching으로 experienceNoticeDTO를 키 값으로 담으려다 상세 페이지가 로딩되지 않는 오류가 생겼다.
 
 #### <오류>  
-<img width="2311" height="330" alt="image" src="https://github.com/user-attachments/assets/cb32308d-62fb-4117-92eb-7006105da3c0" />
+<img width="2311" height="330" alt="Image" src="https://github.com/user-attachments/assets/c47f0762-ff94-44ae-873e-e0a6e36459fb" />
 
 #### <이전 코드>  
-<img width="1022" height="715" alt="image" src="https://github.com/user-attachments/assets/6392669b-5d1d-404f-8319-86aae866b29a" />
+<img width="1022" height="715" alt="Image" src="https://github.com/user-attachments/assets/4ef2c9c2-5e34-4205-885c-f7ee873500a3" />
 
 ### ✅ 해결
 
 #### <수정된 코드>  
-<img width="982" height="787" alt="image" src="https://github.com/user-attachments/assets/433a7950-1083-4473-b125-e43d57e2f7e8" />
+<img width="982" height="787" alt="Image" src="https://github.com/user-attachments/assets/7878568d-65fa-45e6-bb3d-56d43eccfb9f" />
 
 #### <Redis 키, 밸류>  
-<img width="368" height="84" alt="image" src="https://github.com/user-attachments/assets/ef596e7a-c7f0-476d-b717-cb4df1f2ea79" />
+<img width="368" height="84" alt="Image" src="https://github.com/user-attachments/assets/9d2f68de-a1f5-46ae-a496-f18182c27a78" />
 
 finNoticeById의 파라미터인 id로 키 값을 변경하였다. 그 결과 상세 페이지 로딩도 잘 되고 Redis에도 값이 잘 담기는 것을 확인할 수 있었다.
 
@@ -173,7 +174,7 @@ finNoticeById의 파라미터인 id로 키 값을 변경하였다. 그 결과 �
 - 체험 공고 필터링, 지원 기능, 마이페이지 접근 등 주요 기능에 대해 반복 테스트를 수행하여 안정성을 확보하였다.
 - 테스트 결과를 QA 문서로 정리하여 팀원들과 공유하였다.
 
-<img width="968" height="364" alt="Image" src="https://github.com/user-attachments/assets/f05c3c15-487d-4a56-b3c9-5184eeab2a3b" />
+<img width="968" height="364" alt="Image" src="https://github.com/user-attachments/assets/8266c763-0d76-4261-a0ac-fbea44a20003" />
 
 
 ---
@@ -187,8 +188,8 @@ finNoticeById의 파라미터인 id로 키 값을 변경하였다. 그 결과 �
 - 실제 기기에서 테스트하며 반응형 디자인의 문제점을 발견하고, 이를 해결하기 위해 CSS 조건 분기와 플랫폼별 스타일 조정을 적용하였다.
 
 <p align="center">
-  <img width="399" height="868" alt="Image" src="https://github.com/user-attachments/assets/617bf017-2f19-418a-b4e0-4784a5b3162c" width="400" />
-<img width="397" height="864" alt="Image" src="https://github.com/user-attachments/assets/b2575e84-d9cf-4997-b1fc-6953527ad442" width="400" />
+  <img width="399" height="868" alt="Image" src="https://github.com/user-attachments/assets/94da557b-1eea-491e-997e-5ce2f388c678" width="400" />
+<img width="397" height="864" alt="Image" src="https://github.com/user-attachments/assets/2c8ea8a2-2829-4920-9056-623d8943b63f" width="400" />
 </p>
 
 ---
