@@ -125,7 +125,7 @@ public class ConsoleExperienceNoticeController {
         UserDTO user=new UserDTO();
         user=userService.findById(memberId);
         ExperienceNoticeDTO exp=new ExperienceNoticeDTO();
-        exp=experienceNoticeService.findNoticeById(experienceNoticeId);
+        exp=experienceNoticeService.findNoticeById(requestExperienceId);
         model.addAttribute("user", user);
         model.addAttribute("exp", exp);
         Long companyId=customUserDetails.getId();
