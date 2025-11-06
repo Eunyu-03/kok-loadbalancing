@@ -16,6 +16,14 @@
     padding-top: 50%;
 }
 
+.content-main display-none-list{
+    overflow-y: auto;
+}
+
+.int-wrapper{
+    overflow-y: auto;
+}
+
 .search-box {
     display: flex;
     justify-content: space-between;
