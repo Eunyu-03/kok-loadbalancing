@@ -519,7 +519,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const shareBtn = e.target;
             const textBox = saveToast.querySelector("p");
             // 공유하기
-            let url = `http://13.209.155.6/experience/list?sharedCompanyId=${shareBtn.dataset.companyid}&sharedExperienceId=${shareBtn.dataset.experienceid}`;
+            let url = `http://kok-in.shop/experience/list?sharedCompanyId=${shareBtn.dataset.companyid}&sharedExperienceId=${shareBtn.dataset.experienceid}`;
             const textarea = document.createElement("textarea");
             document.body.appendChild(textarea);
             textarea.value = url;
