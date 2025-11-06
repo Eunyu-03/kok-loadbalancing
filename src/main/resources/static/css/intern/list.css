@@ -326,6 +326,7 @@
 
 .content-main {
     flex: 1;
+    overflow-y: auto;
 }
 
 .content-side {
