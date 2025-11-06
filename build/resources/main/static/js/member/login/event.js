@@ -81,11 +81,11 @@ loginButton.addEventListener("click",async (e)=>{
 
     const result = await memberService.login({userEmail:email,userPassword:password,userRole:role});
 
-        if(result.accessToken){
-            if(checkRole.value==='member'){location.href='/experience/list';}
-            else{location.href='/enterprise-console';}
+    if(result.accessToken){
+        if(checkRole.value==='member'){location.href='/experience/list';}
+        else{location.href='/enterprise-console';}
 
-        }else{showLoginErrorToast();}
+    }
 
 });
 
@@ -138,7 +138,7 @@ loginButton.addEventListener("click", (e) => {
             toastEmail.classList.remove("show-red");
         });
 
-    // 비밀번호가 4자 미만일 때
+        // 비밀번호가 4자 미만일 때
     } else if (passwordInput.value.length < 4) {
         showLoginErrorToast();
 

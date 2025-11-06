@@ -38,6 +38,19 @@
         limit 3
     </select>
 
+    <!--  지원 목록 조회  -->
+    <select id="selectRequestCountById">
+        select count(*)
+        from tbl_company c
+                 join tbl_intern_notice n
+                      on c.user_id = n.company_id
+                 join tbl_request_intern r
+                      on n.id = r.intern_notice_id
+                 join tbl_evaluation e
+                      on r.id = e.request_experience_id
+        where r.member_id = #{id}
+    </select>
+
     <!--  인턴 지원 내역 조회  -->
     <select id="selectRequestInternByUserId">
         SELECT ri.id,

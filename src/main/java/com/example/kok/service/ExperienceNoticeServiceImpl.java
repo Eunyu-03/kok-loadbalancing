@@ -77,7 +77,11 @@ public class ExperienceNoticeServiceImpl implements ExperienceNoticeService {
     public ExperienceNoticeDTO findNoticeById(Long id) {
         ExperienceNoticeDTO result= experienceNoticeDAO.findById(id);
         String jobName= experienceNoticeDAO.findJobNameByID(id);
-        result.setJobName(jobName);
+        if(jobName!=null){
+            result.setJobName(jobName);
+        } else {
+            result.setJobName("미선택");
+        }
         LocalDate endDate = LocalDate.parse(result.getExperienceNoticeEndDate());
             LocalDate today = LocalDate.now();
             if (!endDate.isBefore(today)) {

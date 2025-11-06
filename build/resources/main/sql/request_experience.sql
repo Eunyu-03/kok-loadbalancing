@@ -23,3 +23,8 @@ create table tbl_request_experience
     request_experience_member_url   varchar(255),
     request_experience_active       status         default 'active'::status        not null
 );
+
+-- insert into tbl_request_experience(experience_notice_id, member_id, member_alarm_setting_id, request_experience_member_name, request_experience_member_email, request_experience_member_phone, file_id, request_experience_member_url)
+-- values ()
+
+select * from tbl_request_experience;

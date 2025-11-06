@@ -1647,6 +1647,12 @@ border-radius: 8px;
     background: url("../../../images/experience/list/icon_file_default.svg");
 }
 
+.form-item .file-info {
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
 .form-field {
     border: 1px solid rgba(24,37,61,0.0600);
     border-radius: 12px;

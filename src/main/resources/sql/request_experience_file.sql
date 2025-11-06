@@ -10,3 +10,5 @@ create table tbl_request_experience_file
 );
 
 drop table tbl_request_experience_file;
+
+insert into tbl_request_experience_file(file_id, request_experience_id) VALUES (6, 1);

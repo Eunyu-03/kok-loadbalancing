@@ -125,7 +125,7 @@ const postLayout = (() => {
         let detail = `
             <div class="post-9">
                 <div>
-                    <img alt="image" width="40" height="40" src="${post.memberProfileUrl || '/images/main-page/image3.png'}"
+                    <img alt="image" width="40" height="40" src="${post.memberProfileUrl || '/images/member/profile.png'}"
                     style="color: transparent; border-radius: 999px; cursor: pointer; max-height: 40px; max-width: 40px; min-height: 40px; min-width: 40px; object-fit: contain; background-color: #ccc;">
                 </div>
                 <div class="post-10">
