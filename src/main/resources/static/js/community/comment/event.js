@@ -17,10 +17,11 @@ document.body.addEventListener("click", async (e) => {
     const postId = modal.dataset.postId;
 
     // 댓글 작성
-    if (target.closest(".reply-14 .enter")) {
+    if (target.closest(".reply-14 .enter") || target.closest(".reply-mobile .enter")) {
         const modal = document.getElementById("post-detail-modal");
         const postId = modal.dataset.postId;
-        const textarea = modal.querySelector(".reply-14 .replytext");
+        const parent = target.closest(".reply-17");
+        const textarea = parent.querySelector(".replytext");
         const content = textarea.value.trim();
 
         if (!content) {
@@ -36,6 +37,7 @@ document.body.addEventListener("click", async (e) => {
 
             textarea.value = "";
 
+            // 댓글 새로고침
             const commentContainer = modal.querySelector(".reply-10");
             commentContainer.innerHTML = "";
             await showComments(postId);
@@ -169,6 +171,16 @@ document.body.addEventListener("click", async (e) => {
                     </div>
                 </div>
             </div>
+            <div class="reply-mobile">
+                <div class="reply-15">
+                    <div class="reply-16">
+                        <div class="reply-17">
+                            <textarea maxlength="2000" rows="1" class="reply-18 reply-edit-text">${originalContent}</textarea>
+                            <p class="comment-update-submit" data-comment-id="${commentId}" style="cursor:pointer; color:#0066ff; font-weight:500;">수정</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         `;
     }
 
@@ -204,22 +216,32 @@ document.body.addEventListener("click", async (e) => {
         const originalContent = (contentEl.textContent || "").trim();
 
         replyCard.querySelector(".detail-post-16").innerHTML = `
-            <div class="reply-14">
-                <div class="reply-15">
-                    <div class="reply-16">
-                        <div class="reply-17">
-                            <textarea maxlength="2000" rows="1" class="reply-18 reply-edit-text">${originalContent}</textarea>
-                            <p class="reply-update-submit" data-reply-id="${replyId}" style="cursor:pointer; color:#0066ff; font-weight:500;">수정</p>
-                        </div>
+        <div class="reply-14">
+            <div class="reply-15">
+                <div class="reply-16">
+                    <div class="reply-17">
+                        <textarea maxlength="2000" rows="1" class="reply-18 reply-edit-text">${originalContent}</textarea>
+                        <p class="reply-update-submit" data-reply-id="${replyId}" style="cursor:pointer; color:#0066ff; font-weight:500;">수정</p>
                     </div>
                 </div>
             </div>
-        `;
+        </div>
+        <div class="reply-mobile">
+            <div class="reply-15">
+                <div class="reply-16">
+                    <div class="reply-17">
+                        <textarea maxlength="2000" rows="1" class="reply-18 reply-edit-text">${originalContent}</textarea>
+                        <p class="reply-update-submit" data-reply-id="${replyId}" style="cursor:pointer; color:#0066ff; font-weight:500;">수정</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
     }
 
     // 대댓글 수정 완료
     if (target.closest(".reply-update-submit")) {
-        const btn = target.closest(".reply-update-submit");
+        const btn = target.closest(".reply-update-submit")
         const container = btn.closest(".reply-17");
         const textarea = container.querySelector(".reply-edit-text");
         const replyId = btn.dataset.replyId;
