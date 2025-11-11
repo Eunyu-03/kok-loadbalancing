@@ -1103,7 +1103,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         phone.value=user.userPhone;
 
-        submitBtn.addEventListener("click", async () => {
+        submitBtn.replaceWith(submitBtn.cloneNode(true));
+        const newSubmitBtn = popup.querySelector(".popup-action .btn-primary");
+
+        newSubmitBtn.addEventListener("click", async () => {
 
             // 이름을 입력안했을때
             if (!name.value.trim()) {

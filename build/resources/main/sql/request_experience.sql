@@ -28,3 +28,7 @@ create table tbl_request_experience
 -- values ()
 
 select * from tbl_request_experience;
+
+update tbl_experience_notice
+set experience_end_date=date('2025-10-10')
+where id=9;
