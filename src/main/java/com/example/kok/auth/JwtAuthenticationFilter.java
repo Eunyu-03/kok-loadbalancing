@@ -25,6 +25,19 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
+
+        String uri = request.getRequestURI();
+        if (uri.startsWith("/member") ||
+            uri.startsWith("/css") ||
+            uri.startsWith("/js") ||
+            uri.startsWith("/images") ||
+            uri.startsWith("/fonts") ||
+            uri.startsWith("/swagger-ui") ||
+            uri.startsWith("/v3/api-docs") ||
+            uri.startsWith("/error")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
         String token = jwtTokenProvider.parseTokenFromHeader(request);
 
         if(token != null) {
