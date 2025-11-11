@@ -38,10 +38,12 @@ public interface InternRestControllerDocs {
             description = "기업 id와 공고의 id로 해당 인턴 공고와 공고를 올린 기업의 상세 내용을 가져옴.",
             parameters = {
                 @Parameter(name = "companyId", description = "기업의 id"),
-                @Parameter(name="internId", description = "해당 공고의 id")
+                @Parameter(name="internId", description = "해당 공고의 id"),
+                @Parameter(name="customUserDetails", description = "현재 로그인한 멤버 조회")
             }
     )
-    public Map<String,Object> detail(Long companyId, Long internId);
+    public Map<String,Object> detail(Long companyId, Long internId,
+                                     @AuthenticationPrincipal CustomUserDetails customUserDetails);
 
     @Operation(summary = "인턴 공고 저장",
             description = "현재 로그인한 멤버의 id와 해당 공고의 id로 공고 저장",
