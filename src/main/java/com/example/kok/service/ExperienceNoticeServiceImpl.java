@@ -24,6 +24,7 @@ public class ExperienceNoticeServiceImpl implements ExperienceNoticeService {
     private final SaveExperienceNoticeDAO saveExperienceNoticeDAO;
     private final RequestExperienceDAO requestExperienceDAO;
     private final BannerFileDAO bannerFileDAO;
+    private final RetrievedExperienceDAO retrievedExperienceDAO;
 
     @Override
     public ExperienceNoticeCriteriaDTO selectAllExperienceNotice(int page, Search search) {
@@ -74,7 +75,7 @@ public class ExperienceNoticeServiceImpl implements ExperienceNoticeService {
 
     @Override
     @Cacheable(value = "experienceNoticeDTO", key = "#id")
-    public ExperienceNoticeDTO findNoticeById(Long id) {
+    public ExperienceNoticeDTO findNoticeById(Long id, Long memberId) {
         ExperienceNoticeDTO result= experienceNoticeDAO.findById(id);
         String jobName= experienceNoticeDAO.findJobNameByID(id);
         if(jobName!=null){
@@ -82,6 +83,7 @@ public class ExperienceNoticeServiceImpl implements ExperienceNoticeService {
         } else {
             result.setJobName("미선택");
         }
+        retrievedExperienceDAO.save(memberId, id);
         LocalDate endDate = LocalDate.parse(result.getExperienceNoticeEndDate());
             LocalDate today = LocalDate.now();
             if (!endDate.isBefore(today)) {

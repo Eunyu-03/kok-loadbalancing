@@ -14,7 +14,7 @@ public interface ExperienceNoticeService {
     public void setPreSignedUrl(CompanyProfileFileDTO companyProfileFileDTO);
 
 //    공고 단일 조회
-    public ExperienceNoticeDTO findNoticeById(Long id);
+    public ExperienceNoticeDTO findNoticeById(Long id, Long memberId);
 
 //    공고 저장
     public void saveExp(SaveExperienceNoticeDTO saveExperienceNoticeDTO);

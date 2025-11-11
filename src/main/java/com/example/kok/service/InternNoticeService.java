@@ -21,7 +21,7 @@ public interface InternNoticeService {
     public void setPreSignedUrl(CompanyProfileFileDTO companyProfileFileDTO);
 
 //    공고 단일 조회
-    public InternNoticeDTO findNoticeById(Long id);
+    public InternNoticeDTO findNoticeById(Long id, Long memberId);
 
 //    공고 저장
     public void saveInt(SaveInternNoticeDTO saveInternNoticeDTO);

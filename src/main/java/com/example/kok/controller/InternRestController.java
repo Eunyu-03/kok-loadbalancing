@@ -51,9 +51,9 @@ public class InternRestController implements InternRestControllerDocs {
 
 //    상세 불러오기
     @GetMapping("/detail")
-    public Map<String,Object> detail(Long companyId, Long internId) {
+    public Map<String,Object> detail(Long companyId, Long internId, @AuthenticationPrincipal CustomUserDetails customUserDetails) {
         Map<String,Object> result = new HashMap<>();
-        result.put("notice", internNoticeService.findNoticeById(internId));
+        result.put("notice", internNoticeService.findNoticeById(internId, customUserDetails.getId()));
         result.put("company", companyService.findCompanyById(companyId));
         return result;
     }

@@ -1,0 +1,16 @@
+package com.example.kok.domain;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
+
+@Getter
+@ToString(callSuper=true)
+@EqualsAndHashCode(of="id", callSuper = false)
+@SuperBuilder
+public class RetrievedExperienceVO {
+    private Long id;
+    private Long memberId;
+    private Long experienceId;
+}

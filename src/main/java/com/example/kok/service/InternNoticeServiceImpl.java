@@ -7,6 +7,7 @@ import com.example.kok.dto.InternNoticeDTO;
 import com.example.kok.dto.SaveInternNoticeDTO;
 import com.example.kok.repository.CompanyProfileFileDAO;
 import com.example.kok.repository.InternNoticeDAO;
+import com.example.kok.repository.RetrievedInternDAO;
 import com.example.kok.util.CompanyNoticeCriteria;
 import com.example.kok.repository.SaveInternNoticeDAO;
 import com.example.kok.util.Criteria;
@@ -29,6 +30,7 @@ public class InternNoticeServiceImpl implements InternNoticeService {
     private final CompanyProfileFileDAO companyProfileFileDAO;
     private final S3Service s3Service;
     private final SaveInternNoticeDAO saveInternNoticeDAO;
+    private final RetrievedInternDAO retrievedInternDAO;
 
     @Override
     public InternNoticeCriteriaDTO selectAllInternNotice(int page, Search search) {
@@ -80,9 +82,14 @@ public class InternNoticeServiceImpl implements InternNoticeService {
 
     @Override
     @Cacheable(value = "internNoticeDTO", key = "#id")
-    public InternNoticeDTO findNoticeById(Long id) {
+    public InternNoticeDTO findNoticeById(Long id, Long memberId) {
         InternNoticeDTO result= internNoticeDAO.findById(id);
         String jobName= internNoticeDAO.findJobNameByID(id);
+        if(jobName!=null){
+            result.setJobName(jobName);
+        } else {
+            result.setJobName("미선택");
+        }
         result.setJobName(jobName);
         LocalDate endDate = LocalDate.parse(result.getInternNoticeEndDate());
         LocalDate today = LocalDate.now();
@@ -92,6 +99,7 @@ public class InternNoticeServiceImpl implements InternNoticeService {
         } else {
             result.setRemainingDays(0L); // endDate보다 today가 이전일 경우 0
         }
+        retrievedInternDAO.save(memberId, id);
         fileService.findFileByCompanyId(result.getCompanyId())
                 .ifPresentOrElse(fileDTO -> {
                     result.setFileName(fileDTO.getFileName());
