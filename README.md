@@ -5,13 +5,16 @@
 ## 🎯 1. 기획 의도
 
 <img width="1924" height="1080" alt="Image" src="https://github.com/user-attachments/assets/068f5614-a650-4d61-984b-18c06515af28" />
+
+<p align="center">
 <img width="990" height="490" alt="Image" src="https://github.com/user-attachments/assets/b93b5b2b-fe99-4cc6-a47f-18d86a766a6e" width="400" />
 <img width="990" height="590" alt="Image" src="https://github.com/user-attachments/assets/cfdf8ae2-65cd-4367-b50d-2a6550aea365" width="400" />
+</p>
 
 데이터 출처: KOSIS
 
-왼쪽 이미지: 최근 청년층의 고용 통계
-오른쪽 이미지: 최근 중장년층의 고용 통
+- 왼쪽 이미지: 최근 청년층의 고용 통계
+- 오른쪽 이미지: 최근 중장년층의 고용 통
 
 *청년층의 취업자 수가 줄고 있다.*  
 2025년 5월부터 10월까지 고용 통계를 보면, **15~29세 청년층**은 *3682천 명에서 3521천 명으로 감소*했다.  
