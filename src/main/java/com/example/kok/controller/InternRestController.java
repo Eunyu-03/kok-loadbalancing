@@ -53,7 +53,11 @@ public class InternRestController implements InternRestControllerDocs {
     @GetMapping("/detail")
     public Map<String,Object> detail(Long companyId, Long internId, @AuthenticationPrincipal CustomUserDetails customUserDetails) {
         Map<String,Object> result = new HashMap<>();
-        result.put("notice", internNoticeService.findNoticeById(internId, customUserDetails.getId()));
+        if(customUserDetails!=null){
+            result.put("notice", internNoticeService.findNoticeById(internId, customUserDetails.getId()));
+        } else{
+            result.put("notice", internNoticeService.findNoticeById(internId, 0L));
+        }
         result.put("company", companyService.findCompanyById(companyId));
         return result;
     }

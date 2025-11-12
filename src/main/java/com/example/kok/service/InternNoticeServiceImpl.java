@@ -99,7 +99,9 @@ public class InternNoticeServiceImpl implements InternNoticeService {
         } else {
             result.setRemainingDays(0L); // endDate보다 today가 이전일 경우 0
         }
-        retrievedInternDAO.save(memberId, id);
+        if(memberId!=0L){
+            retrievedInternDAO.save(memberId, id);
+        }
         fileService.findFileByCompanyId(result.getCompanyId())
                 .ifPresentOrElse(fileDTO -> {
                     result.setFileName(fileDTO.getFileName());

@@ -50,7 +50,11 @@ public class ExperienceRestController implements ExperienceRestControllerDocs{
     @GetMapping("/detail")
     public Map<String,Object> detail(Long companyId, Long experienceId, @AuthenticationPrincipal CustomUserDetails customUserDetails) {
         Map<String,Object> result = new HashMap<>();
-        result.put("notice", experienceNoticeService.findNoticeById(experienceId, customUserDetails.getId()));
+        if(customUserDetails!=null){
+            result.put("notice", experienceNoticeService.findNoticeById(experienceId, customUserDetails.getId()));
+        } else{
+            result.put("notice", experienceNoticeService.findNoticeById(experienceId, 0L));
+        }
         result.put("company", companyService.findCompanyById(companyId));
         return result;
     }

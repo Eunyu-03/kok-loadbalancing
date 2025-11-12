@@ -83,7 +83,9 @@ public class ExperienceNoticeServiceImpl implements ExperienceNoticeService {
         } else {
             result.setJobName("미선택");
         }
-        retrievedExperienceDAO.save(memberId, id);
+        if(memberId!=0L) {
+            retrievedExperienceDAO.save(memberId, id);
+        }
         LocalDate endDate = LocalDate.parse(result.getExperienceNoticeEndDate());
             LocalDate today = LocalDate.now();
             if (!endDate.isBefore(today)) {
