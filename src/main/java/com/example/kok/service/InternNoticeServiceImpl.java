@@ -97,7 +97,7 @@ public class InternNoticeServiceImpl implements InternNoticeService {
             long days = ChronoUnit.DAYS.between(today, endDate);
             result.setRemainingDays(days);
         } else {
-            result.setRemainingDays(0L); // endDate보다 today가 이전일 경우 0
+            result.setRemainingDays(0L);
         }
         if(memberId!=0L){
             retrievedInternDAO.save(memberId, id);
