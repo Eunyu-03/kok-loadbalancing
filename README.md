@@ -234,7 +234,7 @@ finNoticeById의 파라미터인 id로 키 값을 변경하였다. 그 결과 �
 
 ---
 
-## 🏗️ 10. 인프라 구축 구분
+## 🏗️ 10. AWS 클라우드 배포
 
 <img width="2560" height="1440" alt="Image" src="https://github.com/user-attachments/assets/f1bab364-bc66-4593-b12b-b8e3ef891fd1" />
 
