@@ -41,7 +41,7 @@ public class MemberController implements MemberControllerDocs {
         return files;
     }
 
-//    보관함 목록 삭제
+//    보관함 파일 삭제
     @DeleteMapping("/storage/delete")
     public ResponseEntity<?> deleteSorageFile(@RequestParam(value="fileId") Long fileId){
         memberService.deleteFileByFileId(fileId);
