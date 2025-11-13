@@ -11,10 +11,13 @@ jobs:
     timeout-minutes: 30  # 전체 작업 최대 실행 시간 설정
 
     strategy:
-      matrix:
-        include:
-          - name: EC2_HOST1
-          - name: EC2_HOST2
+       matrix:
+          include:
+            - name: EC2_HOST1
+              host: 43.201.20.142
+            - name: EC2_HOST2
+              host: 15.164.103.241
+
 
     steps:
     - name: Checkout code
