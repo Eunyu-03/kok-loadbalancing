@@ -32,7 +32,7 @@ public class MemberController implements MemberControllerDocs {
         memberService.putFileAtStorage(files, memberId);
     }
 
-//    보관함 목록 열람
+//    보관함 목록
     @GetMapping("/storage/load")
     public List<FileDTO> loadStorageFile(@AuthenticationPrincipal CustomUserDetails customUserDetails){
         Long memberId = customUserDetails.getId();
