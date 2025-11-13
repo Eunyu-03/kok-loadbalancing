@@ -27,8 +27,9 @@ jobs:
       run: echo "HOST=$HOST"
 
 
-    - name: Set HOST env var from secrets
-      run: echo "HOST=${{ secrets[matrix.name] }}" >> $GITHUB_ENV
+    - name: Set HOST env var
+      run: echo "HOST=${{ matrix.host }}" >> $GITHUB_ENV
+
 
     - name: Debug EC2_HOST and SSH key
       run: |
