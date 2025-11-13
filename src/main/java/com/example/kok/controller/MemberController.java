@@ -24,7 +24,7 @@ public class MemberController implements MemberControllerDocs {
     private final MemberService memberService;
     private final UserService userService;
 
-//    보관함에 파일 등록하기
+//    보관함에 파일 등록
     @PostMapping("/storage/save")
     public void saveStorageFile(@AuthenticationPrincipal CustomUserDetails customUserDetails,
                                 @RequestParam(value="files") List<MultipartFile> files){
