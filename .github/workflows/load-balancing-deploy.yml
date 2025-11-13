@@ -40,6 +40,11 @@ jobs:
     - name: Set key permissions
       run: chmod 600 ~/.ssh/id_rsa
 
+    - name: Disable strict host key checking
+      run: |
+        echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+
+
     - name: Add host to known_hosts
       run: ssh-keyscan -H $HOST >> ~/.ssh/known_hosts
 
