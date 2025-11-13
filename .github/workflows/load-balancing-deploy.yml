@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-22.04
+    timeout-minutes: 30  # 전체 작업 최대 실행 시간 설정
 
     strategy:
       matrix:
