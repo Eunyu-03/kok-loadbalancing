@@ -47,7 +47,7 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
 
-# openssl rand -base64 32
+#  openssl rand -base64 32
 jwt:
   secret: ${JWT_SECRET}
 
