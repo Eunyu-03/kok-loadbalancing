@@ -54,7 +54,7 @@ const experienceLayout = (() => {
 
         if (!container) return;
 
-        html+=`<h1 style="font-size: 24px; font-weight: 5; margin-top: 24px">사용자님의 활동 기반 추천 공고</h1>`;
+        html+=`<h1 style="font-size: 24px; font-weight: 500; margin-top: 24px">사용자님의 활동 기반 추천 공고</h1>`;
 
         for (item of result.result){
             const experienceId = item[0];
