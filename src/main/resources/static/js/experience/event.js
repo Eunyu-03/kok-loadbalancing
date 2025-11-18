@@ -1616,9 +1616,9 @@ async function fetchExperiences() {
     }
 }
 
-async function fetchRecommend() {
-    const data = await experienceService.getRecommendNotice()
-    console.log(data);
+const showPosts=async ()=> {
+    const request = await experienceService.getRecommendNotice();
+    await experienceLayout.showRecommand(request);
 }
 
 // ------------------------------
@@ -1671,7 +1671,7 @@ function initExperienceModule() {
     initSearch();
     initSortButtons();
     fetchExperiences();
-    fetchRecommend();
+    showPosts();
 }
 
 initExperienceModule();
