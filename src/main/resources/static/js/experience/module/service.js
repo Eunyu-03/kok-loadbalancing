@@ -117,5 +117,5 @@ const experienceService = (() => {
             }
         }
     };
-    return { getExperienceNotice:getExperienceNotice, pay:pay };
+    return { getExperienceNotice:getExperienceNotice, pay:pay, getRecommendNotice:getRecommendNotice };
 })();

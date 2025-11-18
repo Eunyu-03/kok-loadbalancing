@@ -1616,6 +1616,10 @@ async function fetchExperiences() {
     }
 }
 
+async function fetchRecommend(){
+    const data=await experienceService.getRecommendNotice()
+    console.log(data);
+
 // ------------------------------
 // 3. 검색 버튼 + Enter 처리
 // ------------------------------
