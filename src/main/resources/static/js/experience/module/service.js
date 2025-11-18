@@ -19,9 +19,7 @@ const experienceService = (() => {
             },
             body: JSON.stringify({ memberId })
         })
-        console.log(response);
-        console.log(response.type)
-        console.log(response.json())
+        return await response.json();
     }
 
     const pay = async (money, requestExperienceDTO) => {

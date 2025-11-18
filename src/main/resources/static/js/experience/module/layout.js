@@ -45,7 +45,41 @@ const experienceLayout = (() => {
         applyFilters();
     };
 
-    return { showList };
+    const showRecommand=async (result)=>{
+        const container=document.getElementById("recommend-container");
+        let html = '';
+
+        if (!container) return;
+
+        if (!Array.isArray(experiences) || experiences.length === 0) {
+            container.innerHTML = '<p class="no-results"></p>';
+            return;
+        }
+
+        for (item of result){
+            const experienceId = item[0];
+            const title = item[1];
+            const companyId = item[2];
+
+            const fileUrl = await fetch(`/api/experiences/profile?companyId=${companyId}`)
+                                  .then(res => res.text());
+
+            html+=`<div class="list-item">
+                        <button class="list-item-btn companyId-${companyId} experienceId-${experienceId}">
+                            <div class="list-item-header">
+                                <div class="list-item-thumb"><img src="${fileUrl}" alt=""></div>
+                                <div class="list-item-content">
+                                    <p class="list-item-subtitle">${title || ''}</p>
+                                </div>
+                            </div>
+                        </button>
+                    </div>`
+        }
+
+        container.innerHTML=html;
+    }
+
+    return { showList:showList, showRecommand:showRecommand };
 })();
 
 // 필터 적용 함수
