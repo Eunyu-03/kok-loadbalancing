@@ -3,7 +3,7 @@
 <mapper namespace="com.example.kok.mapper.RetrievedExperienceMapper">
 <!--    insert-->
     <insert id="insertRetrievedExperience">
-        insert into tbl_retrieved_experience(member_id, experience_id)
+        insert into tbl_ai_retrieved_experience(member_id, experience_id)
         values (#{memberId}, #{experienceId})
     </insert>
 </mapper>

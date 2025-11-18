@@ -3,7 +3,7 @@
 <mapper namespace="com.example.kok.mapper.RetrievedInternMapper">
 <!--    insert-->
     <insert id="insertRetrievedIntern">
-        insert into tbl_retrieved_intern(member_id, intern_id)
+        insert into tbl_ai_retrieved_intern(member_id, intern_id)
         values (#{memberId}, #{enternId})
     </insert>
 </mapper>
