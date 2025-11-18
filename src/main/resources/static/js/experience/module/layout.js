@@ -61,6 +61,10 @@ const experienceLayout = (() => {
             const title = item[1];
             const companyId = item[2];
 
+            console.log("반복문 들어옴")
+            console.log(item);
+            console.log(item.valueOf())
+
             const fileUrl = await fetch(`/api/experiences/profile?companyId=${companyId}`)
                                   .then(res => res.text());
 
