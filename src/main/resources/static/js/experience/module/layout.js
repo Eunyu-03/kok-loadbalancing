@@ -68,7 +68,8 @@ const experienceLayout = (() => {
             const fileUrl = await fetch(`/api/experiences/profile?companyId=${companyId}`)
                                   .then(res => res.text());
 
-            html+=`<div class="list-item">
+            html+=`<div>
+<div class="list-item" style="overflow: auto; height: 390px">
                         <button class="list-item-btn recomm experience-saved"
   data-company-id="${companyId}" 
   data-experience-id="${experienceId}">
@@ -79,7 +80,8 @@ const experienceLayout = (() => {
                                 </div>
                             </div>
                         </button>
-                    </div>`
+                    </div>
+</div>`
         }
 
         container.innerHTML=html;
