@@ -1671,6 +1671,7 @@ function initExperienceModule() {
     initSearch();
     initSortButtons();
     fetchExperiences();
+    fetchRecommend();
 }
 
 initExperienceModule();
