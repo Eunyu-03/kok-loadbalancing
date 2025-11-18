@@ -54,7 +54,8 @@ const experienceLayout = (() => {
 
         if (!container) return;
 
-        html+=`<h1 style="font-size: 24px; font-weight: 500; margin-top: 24px" class="galaxy-btn">사용자님의 활동 기반 추천 공고</h1>`;
+        html+=`<h1 style="font-size: 24px; font-weight: 500; margin-top: 24px" class="galaxy-btn">사용자님의 활동 기반 추천 공고</h1>
+<div>`;
 
         for (item of result.result){
             const experienceId = item[0];
@@ -68,7 +69,7 @@ const experienceLayout = (() => {
             const fileUrl = await fetch(`/api/experiences/profile?companyId=${companyId}`)
                                   .then(res => res.text());
 
-            html+=`<div>
+            html+=`
 <div class="list-item" style="overflow: auto; height: 390px">
                         <button class="list-item-btn recomm experience-saved"
   data-company-id="${companyId}" 
@@ -80,10 +81,11 @@ const experienceLayout = (() => {
                                 </div>
                             </div>
                         </button>
-                    </div>
-</div>`
+                    </div>`
         }
 
+        html+=`
+</div>`;
         container.innerHTML=html;
     }
 
