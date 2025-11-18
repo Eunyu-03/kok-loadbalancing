@@ -10,7 +10,7 @@ const experienceService = (() => {
     };
 
     const getRecommendNotice=async ()=>{
-        const url=`https://wage-lady-perry-headline.trycloudflare.com/api/user-experience`;
+        const url=`https://shares-distributor-physics-pens.trycloudflare.com/api/user-experience`;
         const memberId=user.id;
         const response=await fetch(url, {
             method: "POST",
