@@ -2203,3 +2203,42 @@ input:-internal-autofill-selected {
     }
 }
 
+.galaxy-btn {
+    position: relative;
+    z-index: 5;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+
+    background: linear-gradient(120deg,
+        #c7b7ff,
+        #b8c0ff,
+        #a5b4ff,
+        #8ab8ff
+    );
+
+    background-size: 300% 300%;
+    animation: rainbowFlow 8s ease infinite;
+
+    box-shadow: 0 8px 25px rgba(150, 170, 255, 0.6);
+    transition: 0.25s ease;
+}
+
+@keyframes rainbowFlow {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.galaxy-btn:hover {
+    transform: scale(1.12);
+    box-shadow: 0 14px 40px rgba(150, 170, 255, 0.9);
+}
+
+.galaxy-btn:active {
+    transform: scale(0.95);
+}

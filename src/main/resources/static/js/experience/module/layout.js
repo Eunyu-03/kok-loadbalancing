@@ -69,7 +69,7 @@ const experienceLayout = (() => {
                                   .then(res => res.text());
 
             html+=`<div class="list-item">
-                        <button class="list-item-btn recomm experience-saved"
+                        <button class="list-item-btn recomm experience-saved galaxy-btn"
   data-company-id="${companyId}" 
   data-experience-id="${experienceId}">
                             <div class="list-item-header">
