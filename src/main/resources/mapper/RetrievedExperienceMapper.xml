@@ -6,4 +6,11 @@
         insert into tbl_ai_retrieved_experience(member_id, experience_id)
         values (#{memberId}, #{experienceId})
     </insert>
+
+<!--    select-->
+    <select id="selectCountRetrieved">
+        select count(*)
+        from tbl_ai_retrieved_experience
+        where member_id=#{memberId}
+    </select>
 </mapper>

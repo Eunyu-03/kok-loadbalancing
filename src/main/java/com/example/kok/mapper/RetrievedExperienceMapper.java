@@ -7,4 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface RetrievedExperienceMapper {
 //    insert
     public void insertRetrievedExperience(Long memberId, Long experienceId);
+//    select count
+    public int selectCountRetrieved(Long memberId);
 }

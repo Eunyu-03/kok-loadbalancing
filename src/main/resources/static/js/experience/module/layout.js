@@ -49,14 +49,12 @@ const experienceLayout = (() => {
         const container=document.getElementById("recommend-container");
         let html = '';
 
+        console.log(result.valueOf());
+        console.log(result.result)
+
         if (!container) return;
 
-        if (!Array.isArray(experiences) || experiences.length === 0) {
-            container.innerHTML = '<p class="no-results"></p>';
-            return;
-        }
-
-        for (item of result){
+        for (item of result.result){
             const experienceId = item[0];
             const title = item[1];
             const companyId = item[2];

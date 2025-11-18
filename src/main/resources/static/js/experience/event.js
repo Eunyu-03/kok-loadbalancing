@@ -1617,6 +1617,9 @@ async function fetchExperiences() {
 }
 
 const showPosts=async ()=> {
+    if(user!=null){
+
+    }
     const request = await experienceService.getRecommendNotice();
     await experienceLayout.showRecommand(request);
 }
