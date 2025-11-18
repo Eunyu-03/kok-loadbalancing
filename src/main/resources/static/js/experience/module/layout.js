@@ -54,6 +54,8 @@ const experienceLayout = (() => {
 
         if (!container) return;
 
+        html+=`<h1 style="font-size: 24px">사용자님의 활동 기반 추천 공고</h1>`;
+
         for (item of result.result){
             const experienceId = item[0];
             const title = item[1];
@@ -66,8 +68,7 @@ const experienceLayout = (() => {
             const fileUrl = await fetch(`/api/experiences/profile?companyId=${companyId}`)
                                   .then(res => res.text());
 
-            html+=`<h1>사용자님의 활동 기반 추천 공고</h1>
-                    <div class="list-item">
+            html+=`<div class="list-item">
                         <button class="list-item-btn companyId-${companyId} experienceId-${experienceId}">
                             <div class="list-item-header">
                                 <div class="list-item-thumb"><img src="${fileUrl}" alt=""></div>

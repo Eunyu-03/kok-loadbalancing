@@ -1619,9 +1619,155 @@ async function fetchExperiences() {
 const showPosts=async ()=> {
     if(user!=null){
         const recomOkay=await fetch(`/api/experiences/is-okay/retrieve?memberId=${user.id}`);
-        console.log(recomOkay);
-        const request = await experienceService.getRecommendNotice();
-        await experienceLayout.showRecommand(request);
+        if(recomOkay.ok){
+            const request = await experienceService.getRecommendNotice();
+            await experienceLayout.showRecommand(request);
+            const showDetailByShare = async (e) => {
+                const container = document.querySelector(".list-container");
+                const contentDetail = document.querySelector(".content-detail");
+                const contentSide = document.querySelector(".content-side");
+                const triggers = document.querySelectorAll(".popup-trigger");
+                const popups = document.querySelectorAll(".popup-container");
+                const dropdowns = document.querySelectorAll(".option-menu");
+                const saveStorageFilePop=document.getElementById("resume-upload-popup");
+                let companyId = null;
+                let experienceId = null;
+                contentDetail.classList.remove('active');
+                if(sharedCompanyId && sharedExperienceId) {
+                    companyId = sharedCompanyId;
+                    experienceId = sharedExperienceId;
+                }else {
+                    const btn = e.target.closest(".list-item-btn");
+                    if (!btn) return;
+
+                    contentDetail.classList.remove('active');
+
+                    const companyClass = Array.from(btn.classList)
+                        .find(c => c.startsWith("companyId-"));
+                    if (!companyClass) return;
+
+                    companyId = companyClass.split("-")[1];
+
+                    const experienceClass = Array.from(btn.classList)
+                        .find(c => c.startsWith("experienceId-"));
+                    if (!experienceClass) return;
+
+                    experienceId = experienceClass.split("-")[1];
+                }
+
+
+
+                // fetch로 상세 데이터 가져오기
+                const response = await fetch(`/api/experiences/detail?companyId=${companyId}&experienceId=${experienceId}`);
+                const data = await response.json();
+                const detailData = data;
+                // console.log(detailData);
+
+                const fileUrlPre = await fetch(`/api/experiences/profile?companyId=${companyId}`);
+                const fileUrl = await fileUrlPre.text();
+
+                const startDate=new Date(detailData.notice.experienceStartDate);
+                const endDate = new Date(detailData.notice.experienceEndDate);
+                const formattedStart = `${startDate.getFullYear()}년 ${startDate.getMonth() + 1}월 ${startDate.getDate()}일`;
+                const formattedEnd = `${endDate.getFullYear()}년 ${endDate.getMonth() + 1}월 ${endDate.getDate()}일`;
+
+                // const expNoticeStartDate=new Date(detailData.notice.experienceNoticeStartDate);
+                const expNoticeEndDate=new Date(detailData.notice.experienceNoticeEndDate);
+                // const expNoticeStartFormatted=`${expNoticeStartDate.getFullYear()}년 ${expNoticeStartDate.getMonth() + 1}월 ${expNoticeStartDate.getDate()}일`;
+                const expNoticeEndFormatted=`${expNoticeEndDate.getFullYear()}년 ${expNoticeEndDate.getMonth() + 1}월 ${expNoticeEndDate.getDate()}일`;
+
+                const isSavedPre= await fetch(`/api/experiences/is-saved?experienceId=${experienceId}`);
+                console.log(isSavedPre);
+                const isSaved=await isSavedPre.json();
+                const isSavedDetail=isSaved;
+                // console.log(isSavedDetail);
+
+                let saveBtnText='';
+                if(isSavedDetail){
+                    saveBtnText="저장취소";
+                } else{
+                    saveBtnText="저장하기"
+                }
+                contentDetail.innerHTML = `<div class="content-detail-inner active" id="experienceDetail-${experienceId}">
+                                    <div class="content-detail-header">
+                                        <button class="detail-arrow-btn">
+                                            <svg fill="currentColor" height="20" role="img" width="20">
+                                                <path clip-rule="evenodd" d="M11.566 5.435a.8.8 0 0 0-1.132 0l-6 6a.8.8 0 0 0 0 1.13l6 6a.8.8 0 1 0 1.132-1.13L6.93 12.8H19a.8.8 0 1 0 0-1.6H6.931l4.635-4.634a.8.8 0 0 0 0-1.131" fill-rule="evenodd"></path>
+                                            </svg>
+                                            <p>목록</p>
+                                        </button>
+                                    </div>
+                                    <div class="content-detail-body">
+                                        <button class="list-item-header">
+                                            <div class="list-item-thumb">
+                                                <img src="${fileUrl}" alt="">
+                                            </div>
+                                            <div class="list-item-content">
+                                                <p class="list-item-title">${detailData.company.companyName}</p>
+                                                <ul class="profile-stats">
+                                                    <li class="profile-stat-item">팔로워 <i class="num">${detailData.company.followerCount}</i></li>
+                                                    <li class="profile-stat-item">체험공고 <i class="num">${detailData.company.experienceCount}</i></li>
+                                                    <li class="profile-stat-item">인턴공고 <i class="num">${detailData.company.internCount}</i></li>
+                                                </ul>
+                                            </div>
+                                        </button>
+                                        
+                                        <div class="detail-content">
+                                            <div class="detail-header">
+                                                <strong class="detail-title">${detailData.notice.experienceNoticeTitle}</strong>
+                                                <p class="detail-subtitle">${detailData.notice.experienceNoticeSubtitle}</p>
+                                            </div>
+        
+                                            <div class="detail-actions">
+                                                <!-- popup-trigger 클래스가 있으면 열림 -->
+                                                <button class="detail-action-btn detail-apply-btn popup-trigger" data-experienceid=${experienceId} data-target="#quick-apply-popup">간편 지원하기</button>
+                                                <button class="detail-action-btn detail-save-btn" data-experienceid=${experienceId}>${saveBtnText}</button>
+                                                <button class="detail-action-btn detail-share-btn" data-companyid=${companyId} data-experienceid=${experienceId}>공유하기</button>
+                                            </div>
+        
+                                            <ul class="detail-meta">
+                                                <li class="detail-meta-item">
+                                                    <p class="meta-label">직군</p>
+                                                    <p class="meta-value">${detailData.notice.jobName}</p>
+                                                </li>
+                                                <li class="detail-meta-item">
+                                                    <p class="meta-label">회사 규모</p>
+                                                    <p class="meta-value">${detailData.company.scaleName||'-'}</p>
+                                                </li>
+                                                <li class="detail-meta-item detail-meta-item-import meta-item-full">
+                                                    <p class="meta-label">체험일</p>
+                                                    <p class="meta-value">${formattedStart}~${formattedEnd}</p>
+                                                </li>
+                                            </ul>
+        
+                                            <div class="deadline-info">
+                                                <p class="deadline-remain">지원 마감까지 ${detailData.notice.remainingDays}일 남음</p>
+                                                <p class="deadline-description">${expNoticeEndFormatted}까지 지원할 수 있습니다.</p>
+                                            </div>
+        
+                                            <div class="detail-description">
+                                                <div class="detail-item">
+                                                    <p class="detail-item-title">직무소개</p>
+                                                    <p class="detail-item-content">${detailData.notice.experienceNoticeIntroduceJob}</p>
+                                                </div>
+                                                <div class="detail-item">
+                                                    <p class="detail-item-title">참고사항</p>
+                                                    <p class="detail-item-content">${detailData.notice.experienceNoticeEtc}</p>
+                                                </div>
+                                                <div class="detail-item">
+                                                    <p class="detail-item-title">주요 업무</p>
+                                                    <p class="detail-item-content">${detailData.notice.experienceMainTasks}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+                contentDetail.classList.add("active");
+                contentMainList.classList.add("display-none-list");
+                if (contentSide) contentSide.style.display = "none";
+            }
+            showDetailByShare();
+        }
     }
 }
 
