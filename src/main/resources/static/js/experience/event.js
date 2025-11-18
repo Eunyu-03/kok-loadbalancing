@@ -1618,10 +1618,11 @@ async function fetchExperiences() {
 
 const showPosts=async ()=> {
     if(user!=null){
-
+        const recomOkay=await fetch(`/api/experiences/is-okay/is-okay/retrieve?memberId=${user.id}`);
+        console.log(recomOkay);
+        const request = await experienceService.getRecommendNotice();
+        await experienceLayout.showRecommand(request);
     }
-    const request = await experienceService.getRecommendNotice();
-    await experienceLayout.showRecommand(request);
 }
 
 // ------------------------------

@@ -39,4 +39,7 @@ public interface ExperienceNoticeService {
 
 //    가장 최근 배너 조회
     public String getBanner();
+
+//    추천 띄울지 여부
+    public boolean isOkayRetrieve(Long memberId);
 }

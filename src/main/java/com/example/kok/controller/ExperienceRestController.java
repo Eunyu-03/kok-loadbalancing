@@ -162,4 +162,13 @@ public class ExperienceRestController implements ExperienceRestControllerDocs{
 //        System.out.println(request);
         requestExperienceService.applyForExperience(request);
     }
+
+//    추천 띄울까?
+    @GetMapping("/is-okay/retrieve")
+    public boolean isOkayRetrieve(@AuthenticationPrincipal CustomUserDetails customUserDetails) {
+        if(customUserDetails==null) {
+            return false;
+        }
+        return experienceNoticeService.isOkayRetrieve(customUserDetails.getId());
+    }
 }

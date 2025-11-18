@@ -194,4 +194,9 @@ public class ExperienceNoticeServiceImpl implements ExperienceNoticeService {
                 .map(banner -> s3Service.getPreSignedUrl(banner.getBannerFilePath(), Duration.ofMinutes(10)))
                 .orElse("/images/experience/banner1.jpg");
     }
+
+    @Override
+    public boolean isOkayRetrieve(Long memberId) {
+        return retrievedExperienceDAO.isOkayToRetrieve(memberId);
+    }
 }
