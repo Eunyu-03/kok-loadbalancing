@@ -289,23 +289,14 @@ finNoticeById의 파라미터인 id로 키 값을 변경하였다. 그 결과 �
 -   **프론트엔드 연동 (JS fetch)**
 
     -   발급받은 주소를 `fetch`에 넣어서 FastAPI API를 호출했다.
-    -   예시:
-        ```javascript
-        fetch("https://randomstring.trycloudflare.com/api/user-experience", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ memberId: "test-user" })
-        })
-          .then(res => res.json())
-          .then(data => console.log(data))
-          .catch(err => console.error(err));
-        ```
+        <img width="1258" height="398" alt="image" src="https://github.com/user-attachments/assets/96a3a360-51b4-495e-8c1b-ed56c65915e1" />
+
 
 -   **주의할 점**
 
     -   Cloudflare Tunnel은 임시 주소라서 서버를 재시작할 때마다 주소가 바뀐다.
+    -   서버를 시작하는 시간, 끄는 시간을 매일 오전 9:00~오후 8:00로 정했다.
     -   배포 환경에서는 고정 도메인과 로드밸런서를 쓰는 게 안정적이다.
-    -   하지만 개발 단계에서는 빠르게 외부 테스트를 할 수 있는 방법으로 유용하다.
 
 
 
