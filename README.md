@@ -267,6 +267,50 @@ finNoticeById의 파라미터인 id로 키 값을 변경하였다. 그 결과 �
 
 ---
 
+## 🌐 11. Cloudflare Tunnel 활용
+
+-   **FastAPI 개발**
+
+    -   파이썬 웹 서버는 **FastAPI**로 구현했고, 개발은 **PyCharm IDE 환경**에서 진행했다.
+    -   파이썬 기본 문법과 데이터 처리 연습은 **Jupyter Notebook 환경**에서 진행하여 실습과 분석을 병행했다.
+ 
+<img width="1836" height="1345" alt="image" src="https://github.com/user-attachments/assets/f40aba3a-b66f-4ce1-a0fd-aecd9b5b574f" />
+
+
+-   **로컬 FastAPI 서버 외부 공개**
+
+    -   개발 단계에서 `uvicorn`으로 실행한 FastAPI 서버(`127.0.0.1:8000`)를 외부에서 접근할 수 있도록 **Cloudflare Tunnel**을 사용했다.
+    -   `cloudflared tunnel --url http://127.0.0.1:8000` 명령어를 실행하면 Cloudflare가 임시 퍼블릭 주소를 발급해 준다.
+    -   이 주소를 통해 외부 브라우저나 프론트엔드 코드에서 바로 API 호출이 가능하다.
+ 
+ <img width="1435" height="377" alt="image" src="https://github.com/user-attachments/assets/125562d4-66ea-4d38-be91-d71a7cd15602" />
+
+
+-   **프론트엔드 연동 (JS fetch)**
+
+    -   발급받은 주소를 `fetch`에 넣어서 FastAPI API를 호출했다.
+    -   예시:
+        ```javascript
+        fetch("https://randomstring.trycloudflare.com/api/user-experience", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ memberId: "test-user" })
+        })
+          .then(res => res.json())
+          .then(data => console.log(data))
+          .catch(err => console.error(err));
+        ```
+
+-   **주의할 점**
+
+    -   Cloudflare Tunnel은 임시 주소라서 서버를 재시작할 때마다 주소가 바뀐다.
+    -   배포 환경에서는 고정 도메인과 로드밸런서를 쓰는 게 안정적이다.
+    -   하지만 개발 단계에서는 빠르게 외부 테스트를 할 수 있는 방법으로 유용하다.
+
+
+
+---
+
 ## ✨ 11. 느낀 점
 
 ### 🧠 기획: 탄탄한 기획이 순조로운 작업으로 이어진다
